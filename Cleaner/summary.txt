@@ -1,0 +1,20 @@
+=======================================================
+ 🧹 DATA CLEANING AUDIT SUMMARY 🧹
+ Run Timestamp: 2026-10-12 22:07:38
+=======================================================
+Raw Input Rows       : 8198
+Cleaned Output Rows   : 6787
+Total Dropped Rows   : 1411
+
+DROPPED BREAKDOWN:
+  - Date Offset (>30d) : 0
+  - Zero Artifacts     : 3
+  - Price Logic Errors : 57
+  - Duplicates         : 1350
+  - Quantity Outliers  : 1
+
+DATASET BOUNDS:
+  - Earliest Date      : 2022-02-10
+  - Latest Market Date : 2026-09-26
+  - Future Rows Kept   : 82
+=======================================================

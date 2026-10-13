@@ -1,0 +1,90 @@
+--- Data Cleaning and Processing Summary Report ---
+
+### 1. Initial Data Loading & Combination (Step 1)
+Original combined_df shape: (8198, 25)
+
+### 2. Date Extraction & Imputation (Step 3)
+Count of rows where url_date was successfully extracted: 8166
+Count of rows where url_date could not be extracted (unresolvable): 36
+
+### 3. Date Resolution (Step 4)
+Value counts for date_correction_applied:
+date_correction_applied
+none                             8034
+kept_col_small_lag                 82
+corrected_year_bug                 78
+shifted_duplicate_date_by_url       4
+Name: count, dtype: int64
+
+### 4. Price Logic Violations (Step 5)
+Price Logic Failure Type Counts:
+price_logic_failure_type
+none                      8141
+avg_above_max_large         34
+min_max_swapped             17
+avg_below_min_large          4
+avg_below_min_rounding       2
+Name: count, dtype: int64
+Flagged price logic rows saved to 'price_logic_review.csv'
+
+### 5. Initial Duplicate Flagging (Step 6)
+Flagged duplicate rows count: 1356
+Duplicate type breakdown:
+duplicate_type
+none                        6842
+likely_scraper_duplicate    1336
+possible_multi_session        20
+Name: count, dtype: int64
+Flagged duplicate rows saved to 'duplicates_review.csv'
+
+### 6. Categorical Encoding (Step 7)
+Value counts of 'is_BV' after encoding:
+is_BV
+0    4109
+1    4089
+Name: count, dtype: int64
+Value counts for 'market_kanakapura':
+market_kanakapura
+0    5180
+1    3018
+Name: count, dtype: int64
+Value counts for 'market_kolar':
+market_kolar
+0    5926
+1    2272
+Name: count, dtype: int64
+Value counts for 'market_ramanagara':
+market_ramanagara
+0    5290
+1    2908
+Name: count, dtype: int64
+
+### 7. Final Data Inspection
+Final DataFrame Shape: (8198, 25)
+Final Null Counts:
+market                                              0
+date                                                0
+lots                                                0
+qty_kg                                              0
+min_price                                           0
+max_price                                           0
+avg_price                                           0
+source_url                                          0
+url_date                                           32
+date_parsed                                         0
+date_offset_days                                   32
+date_resolved                                       0
+date_correction_applied                             0
+date_offset_days_recomputed                        32
+flag_price_logic                                    0
+price_logic_failure_type                            0
+flag_duplicate                                      0
+duplicate_price_divergence                          0
+duplicate_type                                      0
+market_kanakapura                                   0
+market_kolar                                        0
+market_ramanagara                                   0
+is_BV                                               0
+new_flag_duplicate_market_type_date                 0
+new_flag_duplicate_market_type_date_after_shift     0
+dtype: int64
